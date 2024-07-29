@@ -4,6 +4,7 @@ part of 'ruc_bloc.dart';
 class RucState with _$RucState {
   const factory RucState({
     required RucStatus status,
+    GenericSearchResponse? searchResponse,
     String? message,
   }) = _RucState;
 

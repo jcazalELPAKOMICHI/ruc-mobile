@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "390449587878",
+    "project_id": "ruc-app-4efd8",
+    "storage_bucket": "ruc-app-4efd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390449587878:android:09f63760f3093410b2f667",
+        "android_client_info": {
+          "package_name": "py.com.jcazal.ruc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9XAb7X5ArUTEGy27SOv8tSihyfISTJR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
