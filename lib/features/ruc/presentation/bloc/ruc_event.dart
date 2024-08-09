@@ -6,6 +6,6 @@ class RucEvent with _$RucEvent {
     required String ruc,
     required int page,
     required ValueChanged<ErrorModel> onError,
-    required ValueChanged<GenericSearchResponse> onSuccess,
+    required VoidCallback onSuccess,
   }) = _SearchRuc;
 }

@@ -7,7 +7,7 @@ part 'error_model.g.dart';
 @freezed
 class ErrorModel with _$ErrorModel {
   const factory ErrorModel({
-    required String data,
+    String? data,
     required String message,
   }) = _ErrorModel;
 

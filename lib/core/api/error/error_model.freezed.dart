@@ -20,7 +20,7 @@ ErrorModel _$ErrorModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ErrorModel {
-  String get data => throw _privateConstructorUsedError;
+  String? get data => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ErrorModelCopyWith<$Res> {
           ErrorModel value, $Res Function(ErrorModel) then) =
       _$ErrorModelCopyWithImpl<$Res, ErrorModel>;
   @useResult
-  $Res call({String data, String message});
+  $Res call({String? data, String message});
 }
 
 /// @nodoc
@@ -51,14 +51,14 @@ class _$ErrorModelCopyWithImpl<$Res, $Val extends ErrorModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
     Object? message = null,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,7 @@ abstract class _$$ErrorModelImplCopyWith<$Res>
       __$$ErrorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String data, String message});
+  $Res call({String? data, String message});
 }
 
 /// @nodoc
@@ -89,14 +89,14 @@ class __$$ErrorModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
     Object? message = null,
   }) {
     return _then(_$ErrorModelImpl(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -108,13 +108,13 @@ class __$$ErrorModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ErrorModelImpl implements _ErrorModel {
-  const _$ErrorModelImpl({required this.data, required this.message});
+  const _$ErrorModelImpl({this.data, required this.message});
 
   factory _$ErrorModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ErrorModelImplFromJson(json);
 
   @override
-  final String data;
+  final String? data;
   @override
   final String message;
 
@@ -152,14 +152,13 @@ class _$ErrorModelImpl implements _ErrorModel {
 
 abstract class _ErrorModel implements ErrorModel {
   const factory _ErrorModel(
-      {required final String data,
-      required final String message}) = _$ErrorModelImpl;
+      {final String? data, required final String message}) = _$ErrorModelImpl;
 
   factory _ErrorModel.fromJson(Map<String, dynamic> json) =
       _$ErrorModelImpl.fromJson;
 
   @override
-  String get data;
+  String? get data;
   @override
   String get message;
   @override

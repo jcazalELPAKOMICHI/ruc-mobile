@@ -19,29 +19,25 @@ mixin _$RucEvent {
   String get ruc => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   ValueChanged<ErrorModel> get onError => throw _privateConstructorUsedError;
-  ValueChanged<GenericSearchResponse> get onSuccess =>
-      throw _privateConstructorUsedError;
+  VoidCallback get onSuccess => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String ruc,
-            int page,
-            ValueChanged<ErrorModel> onError,
-            ValueChanged<GenericSearchResponse> onSuccess)
+    required TResult Function(String ruc, int page,
+            ValueChanged<ErrorModel> onError, VoidCallback onSuccess)
         searchRuc,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String ruc, int page, ValueChanged<ErrorModel> onError,
-            ValueChanged<GenericSearchResponse> onSuccess)?
+            VoidCallback onSuccess)?
         searchRuc,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String ruc, int page, ValueChanged<ErrorModel> onError,
-            ValueChanged<GenericSearchResponse> onSuccess)?
+            VoidCallback onSuccess)?
         searchRuc,
     required TResult orElse(),
   }) =>
@@ -77,7 +73,7 @@ abstract class $RucEventCopyWith<$Res> {
       {String ruc,
       int page,
       ValueChanged<ErrorModel> onError,
-      ValueChanged<GenericSearchResponse> onSuccess});
+      VoidCallback onSuccess});
 }
 
 /// @nodoc
@@ -114,7 +110,7 @@ class _$RucEventCopyWithImpl<$Res, $Val extends RucEvent>
       onSuccess: null == onSuccess
           ? _value.onSuccess
           : onSuccess // ignore: cast_nullable_to_non_nullable
-              as ValueChanged<GenericSearchResponse>,
+              as VoidCallback,
     ) as $Val);
   }
 }
@@ -131,7 +127,7 @@ abstract class _$$SearchRucImplCopyWith<$Res>
       {String ruc,
       int page,
       ValueChanged<ErrorModel> onError,
-      ValueChanged<GenericSearchResponse> onSuccess});
+      VoidCallback onSuccess});
 }
 
 /// @nodoc
@@ -166,7 +162,7 @@ class __$$SearchRucImplCopyWithImpl<$Res>
       onSuccess: null == onSuccess
           ? _value.onSuccess
           : onSuccess // ignore: cast_nullable_to_non_nullable
-              as ValueChanged<GenericSearchResponse>,
+              as VoidCallback,
     ));
   }
 }
@@ -187,7 +183,7 @@ class _$SearchRucImpl implements _SearchRuc {
   @override
   final ValueChanged<ErrorModel> onError;
   @override
-  final ValueChanged<GenericSearchResponse> onSuccess;
+  final VoidCallback onSuccess;
 
   @override
   String toString() {
@@ -218,11 +214,8 @@ class _$SearchRucImpl implements _SearchRuc {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String ruc,
-            int page,
-            ValueChanged<ErrorModel> onError,
-            ValueChanged<GenericSearchResponse> onSuccess)
+    required TResult Function(String ruc, int page,
+            ValueChanged<ErrorModel> onError, VoidCallback onSuccess)
         searchRuc,
   }) {
     return searchRuc(ruc, page, onError, onSuccess);
@@ -232,7 +225,7 @@ class _$SearchRucImpl implements _SearchRuc {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String ruc, int page, ValueChanged<ErrorModel> onError,
-            ValueChanged<GenericSearchResponse> onSuccess)?
+            VoidCallback onSuccess)?
         searchRuc,
   }) {
     return searchRuc?.call(ruc, page, onError, onSuccess);
@@ -242,7 +235,7 @@ class _$SearchRucImpl implements _SearchRuc {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String ruc, int page, ValueChanged<ErrorModel> onError,
-            ValueChanged<GenericSearchResponse> onSuccess)?
+            VoidCallback onSuccess)?
         searchRuc,
     required TResult orElse(),
   }) {
@@ -283,11 +276,10 @@ class _$SearchRucImpl implements _SearchRuc {
 
 abstract class _SearchRuc implements RucEvent {
   const factory _SearchRuc(
-          {required final String ruc,
-          required final int page,
-          required final ValueChanged<ErrorModel> onError,
-          required final ValueChanged<GenericSearchResponse> onSuccess}) =
-      _$SearchRucImpl;
+      {required final String ruc,
+      required final int page,
+      required final ValueChanged<ErrorModel> onError,
+      required final VoidCallback onSuccess}) = _$SearchRucImpl;
 
   @override
   String get ruc;
@@ -296,7 +288,7 @@ abstract class _SearchRuc implements RucEvent {
   @override
   ValueChanged<ErrorModel> get onError;
   @override
-  ValueChanged<GenericSearchResponse> get onSuccess;
+  VoidCallback get onSuccess;
   @override
   @JsonKey(ignore: true)
   _$$SearchRucImplCopyWith<_$SearchRucImpl> get copyWith =>
@@ -306,9 +298,9 @@ abstract class _SearchRuc implements RucEvent {
 /// @nodoc
 mixin _$RucState {
   RucStatus get status => throw _privateConstructorUsedError;
-  GenericSearchResponse? get searchResponse =>
-      throw _privateConstructorUsedError;
+  List<RucEntity>? get searchResponse => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  int? get paginas => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RucStateCopyWith<RucState> get copyWith =>
@@ -322,10 +314,9 @@ abstract class $RucStateCopyWith<$Res> {
   @useResult
   $Res call(
       {RucStatus status,
-      GenericSearchResponse? searchResponse,
-      String? message});
-
-  $GenericSearchResponseCopyWith<$Res>? get searchResponse;
+      List<RucEntity>? searchResponse,
+      String? message,
+      int? paginas});
 }
 
 /// @nodoc
@@ -344,6 +335,7 @@ class _$RucStateCopyWithImpl<$Res, $Val extends RucState>
     Object? status = null,
     Object? searchResponse = freezed,
     Object? message = freezed,
+    Object? paginas = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -353,25 +345,16 @@ class _$RucStateCopyWithImpl<$Res, $Val extends RucState>
       searchResponse: freezed == searchResponse
           ? _value.searchResponse
           : searchResponse // ignore: cast_nullable_to_non_nullable
-              as GenericSearchResponse?,
+              as List<RucEntity>?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      paginas: freezed == paginas
+          ? _value.paginas
+          : paginas // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $GenericSearchResponseCopyWith<$Res>? get searchResponse {
-    if (_value.searchResponse == null) {
-      return null;
-    }
-
-    return $GenericSearchResponseCopyWith<$Res>(_value.searchResponse!,
-        (value) {
-      return _then(_value.copyWith(searchResponse: value) as $Val);
-    });
   }
 }
 
@@ -385,11 +368,9 @@ abstract class _$$RucStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {RucStatus status,
-      GenericSearchResponse? searchResponse,
-      String? message});
-
-  @override
-  $GenericSearchResponseCopyWith<$Res>? get searchResponse;
+      List<RucEntity>? searchResponse,
+      String? message,
+      int? paginas});
 }
 
 /// @nodoc
@@ -406,6 +387,7 @@ class __$$RucStateImplCopyWithImpl<$Res>
     Object? status = null,
     Object? searchResponse = freezed,
     Object? message = freezed,
+    Object? paginas = freezed,
   }) {
     return _then(_$RucStateImpl(
       status: null == status
@@ -413,13 +395,17 @@ class __$$RucStateImplCopyWithImpl<$Res>
           : status // ignore: cast_nullable_to_non_nullable
               as RucStatus,
       searchResponse: freezed == searchResponse
-          ? _value.searchResponse
+          ? _value._searchResponse
           : searchResponse // ignore: cast_nullable_to_non_nullable
-              as GenericSearchResponse?,
+              as List<RucEntity>?,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      paginas: freezed == paginas
+          ? _value.paginas
+          : paginas // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -428,18 +414,32 @@ class __$$RucStateImplCopyWithImpl<$Res>
 
 class _$RucStateImpl implements _RucState {
   const _$RucStateImpl(
-      {required this.status, this.searchResponse, this.message});
+      {required this.status,
+      final List<RucEntity>? searchResponse,
+      this.message,
+      this.paginas})
+      : _searchResponse = searchResponse;
 
   @override
   final RucStatus status;
+  final List<RucEntity>? _searchResponse;
   @override
-  final GenericSearchResponse? searchResponse;
+  List<RucEntity>? get searchResponse {
+    final value = _searchResponse;
+    if (value == null) return null;
+    if (_searchResponse is EqualUnmodifiableListView) return _searchResponse;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? message;
+  @override
+  final int? paginas;
 
   @override
   String toString() {
-    return 'RucState(status: $status, searchResponse: $searchResponse, message: $message)';
+    return 'RucState(status: $status, searchResponse: $searchResponse, message: $message, paginas: $paginas)';
   }
 
   @override
@@ -448,13 +448,15 @@ class _$RucStateImpl implements _RucState {
         (other.runtimeType == runtimeType &&
             other is _$RucStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.searchResponse, searchResponse) ||
-                other.searchResponse == searchResponse) &&
-            (identical(other.message, message) || other.message == message));
+            const DeepCollectionEquality()
+                .equals(other._searchResponse, _searchResponse) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.paginas, paginas) || other.paginas == paginas));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, searchResponse, message);
+  int get hashCode => Object.hash(runtimeType, status,
+      const DeepCollectionEquality().hash(_searchResponse), message, paginas);
 
   @JsonKey(ignore: true)
   @override
@@ -466,15 +468,18 @@ class _$RucStateImpl implements _RucState {
 abstract class _RucState implements RucState {
   const factory _RucState(
       {required final RucStatus status,
-      final GenericSearchResponse? searchResponse,
-      final String? message}) = _$RucStateImpl;
+      final List<RucEntity>? searchResponse,
+      final String? message,
+      final int? paginas}) = _$RucStateImpl;
 
   @override
   RucStatus get status;
   @override
-  GenericSearchResponse? get searchResponse;
+  List<RucEntity>? get searchResponse;
   @override
   String? get message;
+  @override
+  int? get paginas;
   @override
   @JsonKey(ignore: true)
   _$$RucStateImplCopyWith<_$RucStateImpl> get copyWith =>

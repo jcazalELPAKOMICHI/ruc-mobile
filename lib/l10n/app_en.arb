@@ -1,3 +1,6 @@
 {
-    
+    "ruc": "RUC",
+    "search": "Search",
+    "inputRucPlaceHolder": "Enter ruc or company name",
+    "status": "Status"
 }

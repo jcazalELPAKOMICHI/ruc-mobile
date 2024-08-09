@@ -1,3 +1,6 @@
 {
-    
+    "ruc": "RUC",
+    "search": "Buscar",
+    "inputRucPlaceHolder": "Ingrese ruc o razón social",
+    "status": "Estado"
 }
