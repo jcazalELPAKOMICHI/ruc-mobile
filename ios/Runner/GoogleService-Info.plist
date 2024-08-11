@@ -9,21 +9,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>py.com.jcazal.ruc</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>PROJECT_ID</key>
 	<string>ruc-app-4efd8</string>
 	<key>STORAGE_BUCKET</key>
 	<string>ruc-app-4efd8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:390449587878:ios:2aae74960e1ba0c1b2f667</string>
 </dict>
